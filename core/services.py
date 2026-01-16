@@ -62,5 +62,5 @@ class SAPService:
 
         # --- ECHTE SAP LOGIK ---
         # 1. CSRF Token holen (Pflicht bei SAP POSTs!)
-        # (Implementieren wir später im Detail, ist etwas komplexer)
+        # Später eher komplex
         pass

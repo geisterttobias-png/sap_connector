@@ -40,3 +40,9 @@ class MockSAPClient:
             "OrderDescription": order_data.get("OrderDescription"),
             "SystemStatus": "CRTD" # Created
         }
+    def get_equipment_detail(self, equipment_id):  # holt einzelne Equipment Details
+        all_data = self.get_equipments()
+        for item in all_data:
+            if item['Equipment'] == equipment_id:
+                return item
+        return None

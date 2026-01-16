@@ -1,0 +1,45 @@
+{% extends 'sap_pm/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-3">
+        <h2>Anlagenübersicht</h2>
+        <p class="text-muted">Hierarchie: Werk > Techn. Platz > Equipment</p>
+    </div>
+</div>
+
+<div class="row">
+    {% for item in equipments %}
+    <div class="col-12 col-md-6 col-lg-4"> <div class="card h-100 border-start border-4 {% if item.SystemStatus == 'REL' %}border-success{% else %}border-danger{% endif %}">
+            <div class="card-header bg-white">
+                <small class="text-muted">
+                    🏭 Werk {{ item.MaintenancePlant }} <br>
+                    📍 {{ item.FunctionalLocation }}
+                </small>
+            </div>
+            
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <h5 class="card-title">{{ item.EquipmentName }}</h5>
+                    {% if item.SystemStatus == 'REL' %}
+                        <span class="badge bg-success status-badge">Aktiv</span>
+                    {% else %}
+                        <span class="badge bg-danger status-badge">Gesperrt</span>
+                    {% endif %}
+                </div>
+                
+                <p class="card-text text-secondary">
+                    Equip-Nr: <strong>{{ item.Equipment }}</strong><br>
+                    Hersteller: {{ item.Manufacturer }}
+                </p>
+            </div>
+            
+            <div class="card-footer bg-transparent border-top-0">
+                <a href="#" class="btn btn-outline-primary btn-sm w-100">Details & Aufträge</a>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

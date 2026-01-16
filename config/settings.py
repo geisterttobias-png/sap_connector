@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
      # Custom Apps
-    'core',    # User & Berechtigungen
+    'core',    # Globale Konfigurationen, die von allen Apps gebraucht werden
+    'user',    # User & Berechtigungen
     'sap_pm',  # SAP Logik
 ]
 
